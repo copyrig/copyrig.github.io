@@ -9,6 +9,7 @@ profile:
   image: #prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
+    <code class="language-plaintext highlighter-rouge">_pages/about.md</code>
     <p>2066, Seobu-ro, Jangan-gu</p>
     <p>Suwon-si, Gyeonggi 16419</p>
     <p>Republic of Korea</p>
