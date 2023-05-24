@@ -9,6 +9,7 @@ profile:
   image: #prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
+    <h3>Contact</h3>
     <code class="language-plaintext highlighter-rouge"><a href="mailto://djlim7@skku.edu">djlim7@skku.edu</a></code>
     <code class="language-plaintext highlighter-rouge"><a href="https://github.com/copyrig">github.com/copyrig</a></code>
     <p>2066, Seobu-ro, Jangan-gu</p>
