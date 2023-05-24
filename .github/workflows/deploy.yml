@@ -1,37 +1,37 @@
-name: deploy
+name: deploy # The name of the workflow
 
-on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
-  workflow_dispatch:
+on: # Define the running condition
+  push: # On push, run the script
+    branches: # On these branches, run the script
+      - master # On master branch on push, run the script
+      - main # On main branch on push, run the script
+  pull_request: # On pull request, run the script
+    branches: # On these branches, run the script
+      - master # On master branch on pull request, run the script
+      - main # On main branch on pull request, run the script
+  workflow_dispatch: # Enable manual triggering
 
-permissions:
-  contents: write
+permissions: # Give permission for the script
+  contents: write # Enable write permission for the contents
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v3
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
+jobs: # Define the jobs
+  deploy: # Deploy setting for the job
+    runs-on: ubuntu-latest # Define the type of machine to run the job on
+    steps: # With these steps, the script runs
+    - name: Checkout 🛎️ # The first step's name
+      uses: actions/checkout@v3 # It clones the repository into local
+    - name: Setup Ruby # The second step's name
+      uses: ruby/setup-ruby@v1 # It installs Ruby
       with:
-        ruby-version: '3.2.1'
-        bundler-cache: true
-    - name: Install and Build 🔧
-      run: |
+        ruby-version: '3.2.1' # The version of Ruby is '3.2.1'
+        bundler-cache: true # Caches installed gems automatically
+    - name: Install and Build 🔧 # The third step's name
+      run: | # Install Mermaidfor CLI and build Jekyll
         npm install -g mermaid.cli
         bundle exec jekyll build
-    - name: Deploy 🚀
-      if: github.event_name != 'pull_request'
-      uses: JamesIves/github-pages-deploy-action@v4
+    - name: Deploy 🚀 # The last step's name
+      if: github.event_name != 'pull_request' # Do if it is not pull request
+      uses: JamesIves/github-pages-deploy-action@v4 # Invoke trigger of Github Pages bot and deploy main branch into gh_pages branch
       with:
-        folder: _site
+        folder: _site # With the _site folder
 
